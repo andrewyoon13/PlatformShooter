@@ -13,8 +13,9 @@ GameObject:
   - component: {fileID: 3198391094899301481}
   - component: {fileID: 3198391094899301494}
   - component: {fileID: 3198391094899301495}
+  - component: {fileID: 409865292}
   m_Layer: 0
-  m_Name: Player2 (1)
+  m_Name: Player2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27,7 +28,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3198391094899301492}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -2.39, y: -5.98, z: 0}
   m_LocalScale: {x: -3, y: 3, z: 1}
   m_Children: []
@@ -97,13 +98,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 8
-  jumpV: 10
+  jumpV: 30
   boxCollider2D: {fileID: 0}
   layerMask:
     serializedVersion: 2
     m_Bits: 256
   isPlayer1: 0
   isPlayer2: 1
+  animator: {fileID: 409865292}
 --- !u!61 &3198391094899301494
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -145,9 +147,28 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 15
+  m_GravityScale: 13
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!95 &409865292
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3198391094899301492}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9ecbabc9d5f2ee647ba6751e1a8d5ecc, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

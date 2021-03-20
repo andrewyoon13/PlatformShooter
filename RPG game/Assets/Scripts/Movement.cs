@@ -12,6 +12,8 @@ public class Movement : MonoBehaviour
     [SerializeField] private LayerMask layerMask;
     public bool isPlayer1 = false;
     public bool isPlayer2 = false;
+
+    public Animator animator; 
     
 
     void Start(){
@@ -22,11 +24,20 @@ public class Movement : MonoBehaviour
     void FixedUpdate(){
         moveInput = Input.GetAxisRaw("Horizontal");
         rb.velocity = new Vector2(moveInput * speed, rb.velocity.y);
+
+        animator.SetFloat("Speed", Mathf.Abs(moveInput));
     }
 
     void Update(){
         if (isGrounded() && Input.GetKeyDown(KeyCode.Space)){
             rb.velocity = Vector2.up * jumpV;
+    
+        }
+
+        if (isGrounded()){
+            animator.SetBool("isJumping", false);
+        }else if (isGrounded() == false){
+            animator.SetBool("isJumping", true);
         }
 
         Vector3 playerScale = transform.localScale;
@@ -42,7 +53,7 @@ public class Movement : MonoBehaviour
             playerScale.x = 3;
         }
 
-
+        
         transform.localScale = playerScale;
         
        
@@ -53,6 +64,7 @@ public class Movement : MonoBehaviour
         return raycastHit2d.collider != null;
     }
 
+    
 
 
 }
