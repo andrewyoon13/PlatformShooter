@@ -7,15 +7,16 @@ public class Movement : MonoBehaviour
     private Rigidbody2D rb;
     public float speed;
     private float moveInput;
-    public float jumpForce;
-
-    private bool isGrounded;
-    public Transform feetPos;
-    public float checkRadius;
-    public LayerMask whatIsGround;
+    public float jumpV = 10f;
+    public BoxCollider2D boxCollider2D;
+    [SerializeField] private LayerMask layerMask;
+    public bool isPlayer1 = false;
+    public bool isPlayer2 = false;
+    
 
     void Start(){
-        rb = GetComponent<Rigidbody2D>();
+        rb = transform.GetComponent<Rigidbody2D>();
+        boxCollider2D = transform.GetComponent<BoxCollider2D>();
     }
 
     void FixedUpdate(){
@@ -24,12 +25,34 @@ public class Movement : MonoBehaviour
     }
 
     void Update(){
-
-        isGrounded = Physics2D.OverlapCircle(feetPos.position,checkRadius, whatIsGround);
-
-        if (isGrounded == true && Input.GetKeyDown(KeyCode.Space)){
-            rb.velocity = Vector2.up * jumpForce;
+        if (isGrounded() && Input.GetKeyDown(KeyCode.Space)){
+            rb.velocity = Vector2.up * jumpV;
         }
+
+        Vector3 playerScale = transform.localScale;
+        if (Input.GetAxis("Horizontal") > 0 && isPlayer1){
+            playerScale.x = -1;
+        }else if (Input.GetAxis("Horizontal")<0 && isPlayer1){
+            playerScale.x = 1;
+        }
+
+        if (Input.GetAxis("Horizontal") < 0 && isPlayer2){
+            playerScale.x = -3;
+        }else if (Input.GetAxis("Horizontal")>0 && isPlayer2){
+            playerScale.x = 3;
+        }
+
+
+        transform.localScale = playerScale;
+        
+       
     }
+
+    private bool isGrounded(){
+        RaycastHit2D raycastHit2d = Physics2D.BoxCast(boxCollider2D.bounds.center, boxCollider2D.bounds.size,0f,Vector2.down,0.1f,layerMask);
+        return raycastHit2d.collider != null;
+    }
+
+
 
 }
