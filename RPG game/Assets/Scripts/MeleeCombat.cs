@@ -9,6 +9,8 @@ public class MeleeCombat : MonoBehaviour
     public float attackRange = 0.5f;
     public LayerMask enemyLayer;
 
+    public int attackDamage = 20;
+
     // Update is called once per frame
     void Update()
     {
@@ -24,9 +26,9 @@ public class MeleeCombat : MonoBehaviour
 
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange,enemyLayer);
 
-        foreach (Collider2D item in hitEnemies)
+        foreach (Collider2D enemy in hitEnemies)
         {
-            Debug.Log("hit");
+            enemy.GetComponent<EnemyHealth>().TakeDamage(attackDamage);
         }
     }
 
