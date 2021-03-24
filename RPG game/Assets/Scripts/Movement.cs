@@ -29,7 +29,7 @@ public class Movement : MonoBehaviour
     }
 
     void Update(){
-        if (isGrounded() && Input.GetKeyDown(KeyCode.Space)){
+        if (isGrounded() && Input.GetKeyDown(KeyCode.UpArrow)){
             rb.velocity = Vector2.up * jumpV;
     
         }
