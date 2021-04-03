@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: -3513152175276518403}
   m_Layer: 0
   m_Name: Player2
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -189,6 +189,7 @@ MonoBehaviour:
   shootPoint: {fileID: 2177049095132404569}
   animator: {fileID: 409865292}
   damage: 20
+  lineRenderer: {fileID: 0}
 --- !u!1 &3421422508244343976
 GameObject:
   m_ObjectHideFlags: 0
