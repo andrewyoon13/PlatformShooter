@@ -12,6 +12,7 @@ public class Movement : MonoBehaviour
     [SerializeField] private LayerMask layerMask;
     public bool isPlayer1 = false;
     public bool isPlayer2 = false;
+    public bool hasKey = false;
 
     public Animator animator; 
     
@@ -55,8 +56,8 @@ public class Movement : MonoBehaviour
 
         
         transform.localScale = playerScale;
+
         
-       
     }
 
     private bool isGrounded(){
@@ -65,6 +66,23 @@ public class Movement : MonoBehaviour
     }
 
     
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if(other.gameObject.CompareTag("Key")){
+            Destroy(other.gameObject);
+            hasKey = true;
+        }
+
+        if(other.gameObject.CompareTag("Exit")){//this is where we will load up the stat progression UI scene
+            if(hasKey){
+             Application.Quit();
+             Debug.Log("trying to leave");
+            }else 
+            Debug.Log("get the key");
+        }
+
+    }
+
 
 
 }

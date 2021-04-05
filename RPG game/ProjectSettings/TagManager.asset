@@ -9,6 +9,8 @@ TagManager:
   - _Player
   - Enemy_Projectile
   - Turn
+  - Exit
+  - Key
   layers:
   - Default
   - TransparentFX
