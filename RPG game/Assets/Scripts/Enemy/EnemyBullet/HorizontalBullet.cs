@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bullet : MonoBehaviour
+public class HorizontalBullet : MonoBehaviour
 {
 
 
-    float moveSpeed = 7.0f;
+    float moveSpeed = 10.0f;
 
     Movement target;
 
@@ -19,16 +19,16 @@ public class Bullet : MonoBehaviour
     void Start()
     {
 
-        rb = GetComponent<Rigidbody2D> ();
+        rb = GetComponent<Rigidbody2D>();
 
         target = GameObject.FindObjectOfType<Movement>();
 
         moveDirection = (target.transform.position - transform.position).normalized * moveSpeed;
 
-        rb.velocity = new Vector2(moveDirection.x, moveDirection.y);
+        rb.velocity = new Vector2(moveDirection.x, 0);
 
-        Destroy(gameObject, 3f);
-        
+        Destroy(gameObject, 4f);
+
     }
 
 
@@ -41,6 +41,6 @@ public class Bullet : MonoBehaviour
     }
     void Update()
     {
-        
+
     }
 }
