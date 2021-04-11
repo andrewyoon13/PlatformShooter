@@ -11,6 +11,8 @@ TagManager:
   - Turn
   - Exit
   - Key
+  - Enemy2
+  - Bullet
   layers:
   - Default
   - TransparentFX

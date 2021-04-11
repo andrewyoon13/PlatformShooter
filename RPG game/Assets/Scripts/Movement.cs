@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
+    public float health = 30;
+    public float damage = 10;
     private Rigidbody2D rb;
     public float speed;
     private float moveInput;
@@ -79,6 +81,24 @@ public class Movement : MonoBehaviour
              Debug.Log("trying to leave");
             }else 
             Debug.Log("get the key");
+        }
+        if(other.gameObject.CompareTag("Enemy2")){
+            health = health - damage;
+            if(health == 0){
+                Destroy(gameObject);
+                FindObjectOfType<GameManagement>().GameEnding(); //send the execution over to the GameManagement class and eventually restart the game
+
+            }
+            
+        }
+        if(other.gameObject.CompareTag("Bullet")){
+            health = health - damage;
+            if(health == 0){
+                Destroy(gameObject);
+                FindObjectOfType<GameManagement>().GameEnding(); //send the execution over to the GameManagement class and eventually restart the game
+
+            }
+            
         }
 
     }
