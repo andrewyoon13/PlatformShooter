@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 3198391094899301495}
   - component: {fileID: 409865292}
   - component: {fileID: -3513152175276518403}
+  - component: {fileID: -5219414856095411169}
   m_Layer: 0
   m_Name: Player2
   m_TagString: Player
@@ -99,6 +100,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99485d24318afc942b8c5a23fd983dce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 30
+  damage: 10
   speed: 8
   jumpV: 30
   boxCollider2D: {fileID: 0}
@@ -191,6 +194,25 @@ MonoBehaviour:
   animator: {fileID: 409865292}
   damage: 20
   lineRenderer: {fileID: 0}
+--- !u!114 &-5219414856095411169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3198391094899301492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0dc044ec7b3ea4a4d8a91c1ae3080ac8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 409865292}
+  attackPoint: {fileID: 2177049095132404569}
+  attackRange: 0.5
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 512
+  attackDamage: 20
 --- !u!1 &3421422508244343976
 GameObject:
   m_ObjectHideFlags: 0
