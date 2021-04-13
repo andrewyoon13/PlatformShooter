@@ -13,6 +13,7 @@ TagManager:
   - Key
   - Enemy2
   - Bullet
+  - trap
   layers:
   - Default
   - TransparentFX

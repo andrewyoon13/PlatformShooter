@@ -77,7 +77,7 @@ public class Movement : MonoBehaviour
 
         if(other.gameObject.CompareTag("Exit")){//this is where we will load up the stat progression UI scene
             if(hasKey){
-             Application.Quit();
+             //load in UI scene
              Debug.Log("trying to leave");
             }else 
             Debug.Log("get the key");
@@ -99,6 +99,11 @@ public class Movement : MonoBehaviour
 
             }
             
+        }
+        if(other.gameObject.CompareTag("trap")){
+            Destroy(other.gameObject);
+            health-= 15;
+            Debug.Log("health:" + health);
         }
 
     }
