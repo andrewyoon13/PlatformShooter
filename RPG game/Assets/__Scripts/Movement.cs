@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Movement : MonoBehaviour
 {
@@ -77,7 +78,7 @@ public class Movement : MonoBehaviour
         if(other.gameObject.CompareTag("Exit")){//this is where we will load up the stat progression UI scene
             if(hasKey){
              //load in UI scene
-             Debug.Log("trying to leave");
+             SceneManager.LoadScene(3);
             }else 
             Debug.Log("get the key");
         }

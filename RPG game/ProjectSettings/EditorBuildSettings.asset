@@ -6,12 +6,18 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Character Selection.unity
+    path: Assets/_Scenes/Character Selection.unity
     guid: e8a14ad698eee954f9f5d77317b3412c
   - enabled: 1
-    path: Assets/Scenes/meleeCharLevel1.unity
+    path: Assets/_Scenes/meleeCharLevel1.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/Scenes/ShooterCharLevel1.unity
+    path: Assets/_Scenes/ShooterCharLevel1.unity
     guid: 392898674e0b74744b971a9a2fbcdade
+  - enabled: 1
+    path: Assets/_Scenes/ChraracterUIMelee.unity
+    guid: 13e8f879010830d4ba70529f705801f5
+  - enabled: 1
+    path: Assets/_Scenes/ChraracterUIShooter.unity
+    guid: 42a10facee1ba444186339d2fcde3141
   m_configObjects: {}
