@@ -36,11 +36,6 @@ public class Bullet_Down : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
-        if (col.gameObject.CompareTag("Turn"))
-        {
-            Destroy(gameObject);
-        }
     }
 
 
