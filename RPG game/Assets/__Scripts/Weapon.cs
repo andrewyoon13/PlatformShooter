@@ -20,7 +20,7 @@ public class Weapon : MonoBehaviour
         animator.SetTrigger("RangedAttack");
         
         
-        RaycastHit2D hitEnemies = Physics2D.Raycast(shootPoint.position, Vector2.right);
+        RaycastHit2D hitEnemies = Physics2D.Raycast(shootPoint.position, -shootPoint.right);
 
         if (hitEnemies)
         {
@@ -34,7 +34,7 @@ public class Weapon : MonoBehaviour
             lineRenderer.SetPosition(1,hitEnemies.point);
         } else {
             lineRenderer.SetPosition(0, shootPoint.position);
-			lineRenderer.SetPosition(1, (Vector2)shootPoint.position + Vector2.left * 100);
+			lineRenderer.SetPosition(1, (Vector2)shootPoint.position + -(Vector2)shootPoint.right * 100);
         }
         lineRenderer.enabled = true;
 
