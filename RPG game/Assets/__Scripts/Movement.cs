@@ -17,23 +17,16 @@ public class Movement : MonoBehaviour
     public bool isPlayer2 = false;
     public bool hasKey = false;
     private Vector3 velo = Vector3.zero;
-    [Range(0, .3f)] [SerializeField] private float m_MovementSmoothing = .05f;
+    [Range(0, .3f)] [SerializeField] private float smooth = .05f;
     private bool faceRight = true;
-    public float move;
-
+    float horizontalMove = 0f;
+    public float runSpeed = 40f;
     public Animator animator; 
     
 
     void Start(){
         rb = transform.GetComponent<Rigidbody2D>();
         boxCollider2D = transform.GetComponent<BoxCollider2D>();
-    }
-
-    void FixedUpdate(){
-        moveInput = Input.GetAxisRaw("Horizontal");
-        rb.velocity = new Vector2(moveInput * speed, rb.velocity.y);
-
-        animator.SetFloat("Speed", Mathf.Abs(moveInput));
     }
 
     void Update(){
@@ -48,18 +41,24 @@ public class Movement : MonoBehaviour
             animator.SetBool("isJumping", true);
         }
 
-        Vector3 targetVelocity = new Vector2(move * 10f, rb.velocity.y);
-        rb.velocity = Vector3.SmoothDamp(rb.velocity, targetVelocity, ref velo, m_MovementSmoothing);
-        if (Input.GetAxis("Horizontal") > 0 && faceRight){
+        horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
+    }
+    public void Move(float move)
+    {
+          Vector3 targetVelocity = new Vector2(move * 10f, rb.velocity.y);
+        rb.velocity = Vector3.SmoothDamp(rb.velocity, targetVelocity, ref velo, smooth);
+        if (move > 0 && faceRight){
             faceRight = !faceRight;
             transform.Rotate(0f, 180f, 0f);
-        }else if (Input.GetAxis("Horizontal") < 0 && !faceRight){
+        }else if (move < 0 && !faceRight){
             faceRight = !faceRight;
             transform.Rotate(0f, 180f, 0f);
         }
-
-
-        
+    }
+    void FixedUpdate(){
+        moveInput = Input.GetAxisRaw("Horizontal");
+        animator.SetFloat("Speed", Mathf.Abs(moveInput));
+        Move(horizontalMove * Time.fixedDeltaTime);
     }
 
     private bool isGrounded(){

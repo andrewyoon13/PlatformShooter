@@ -4224,6 +4224,11 @@ PrefabInstance:
       propertyPath: lineRenderer
       value: 
       objectReference: {fileID: 1038317584}
+    - target: {fileID: 2177049095132404569, guid: eb01b43eb3f14014e82aee5b9b8f21ee,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.023
+      objectReference: {fileID: 0}
     - target: {fileID: 3198391094899301483, guid: eb01b43eb3f14014e82aee5b9b8f21ee,
         type: 3}
       propertyPath: m_RootOrder
