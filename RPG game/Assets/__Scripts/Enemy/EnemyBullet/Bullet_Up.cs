@@ -6,7 +6,7 @@ public class Bullet_Up : MonoBehaviour
 {
 
 
-    float moveSpeed = 3.0f;
+    float moveSpeed = 0.5f;
 
     Movement target;
 
