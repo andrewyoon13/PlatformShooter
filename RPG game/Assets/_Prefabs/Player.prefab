@@ -46,6 +46,7 @@ GameObject:
   - component: {fileID: 7387461177804599718}
   - component: {fileID: 1824467912}
   - component: {fileID: 154052970}
+  - component: {fileID: 8951449748590100081}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -189,6 +190,8 @@ MonoBehaviour:
   isPlayer1: 1
   isPlayer2: 0
   hasKey: 0
+  smooth: 0.05
+  runSpeed: 40
   animator: {fileID: 7387461177804599718}
 --- !u!95 &7387461177804599718
 Animator:
@@ -244,6 +247,22 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   attackDamage: 30
+--- !u!114 &8951449748590100081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5165941700099659559}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 903ca750dd2d4ae4f853ed60945a24e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shootPoint: {fileID: 3612341387221865184}
+  animator: {fileID: 7387461177804599718}
+  damage: 20
+  lineRenderer: {fileID: 0}
 --- !u!1 &6695894473777647216
 GameObject:
   m_ObjectHideFlags: 0
