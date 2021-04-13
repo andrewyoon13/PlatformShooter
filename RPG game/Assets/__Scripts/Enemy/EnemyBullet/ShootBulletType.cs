@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShootTowardsPlayer : MonoBehaviour
+public class ShootBulletType : MonoBehaviour
 {
 
 
@@ -16,7 +16,7 @@ public class ShootTowardsPlayer : MonoBehaviour
     void Start()
     {
 
-        fireRate = 1f;
+        fireRate = 4f;
         nextFire = Time.time;
 
         

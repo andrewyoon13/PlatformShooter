@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class VerticalBulletUp : MonoBehaviour
+public class Bullet_Down : MonoBehaviour
 {
 
 
-    float moveSpeed = 20.0f;
+    float moveSpeed = 3.0f;
 
     Movement target;
 
@@ -21,13 +21,11 @@ public class VerticalBulletUp : MonoBehaviour
 
         rb = GetComponent<Rigidbody2D>();
 
-        target = GameObject.FindObjectOfType<Movement>();
+        moveDirection = rb.transform.position * moveSpeed;
 
-        moveDirection = (target.transform.position - transform.position).normalized * moveSpeed;
+        rb.velocity = new Vector2(0, moveDirection.y);
 
-        rb.velocity = new Vector2(0, -moveDirection.y);
-
-        Destroy(gameObject, 4f);
+        Destroy(gameObject, 10f);
 
     }
 
@@ -38,9 +36,12 @@ public class VerticalBulletUp : MonoBehaviour
         {
             Destroy(gameObject);
         }
-    }
-    void Update()
-    {
 
+        if (col.gameObject.CompareTag("Turn"))
+        {
+            Destroy(gameObject);
+        }
     }
+
+
 }

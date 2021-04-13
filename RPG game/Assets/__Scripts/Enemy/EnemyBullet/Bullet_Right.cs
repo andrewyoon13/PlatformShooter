@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bullet : MonoBehaviour
+public class Bullet_Right : MonoBehaviour
 {
 
 
-    float moveSpeed = 7.0f;
+    float moveSpeed = 1.0f;
 
     Movement target;
 
@@ -19,16 +19,14 @@ public class Bullet : MonoBehaviour
     void Start()
     {
 
-        rb = GetComponent<Rigidbody2D> ();
+        rb = GetComponent<Rigidbody2D>();
 
-        target = GameObject.FindObjectOfType<Movement>();
+        moveDirection = rb.transform.position * moveSpeed;
 
-        moveDirection = (target.transform.position - transform.position).normalized * moveSpeed;
+        rb.velocity = new Vector2(moveDirection.x, 0);
 
-        rb.velocity = new Vector2(0, moveDirection.y);
+        Destroy(gameObject, 10f);
 
-        Destroy(gameObject, 4f);
-        
     }
 
 
@@ -38,9 +36,12 @@ public class Bullet : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        if (col.gameObject.CompareTag("Turn"))
+        {
+            Destroy(gameObject);
+        }
     }
-    void Update()
-    {
-        
-    }
+
+
 }
