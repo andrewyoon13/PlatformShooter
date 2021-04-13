@@ -38,6 +38,10 @@ public class Bullet : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        if(col.gameObject.CompareTag("barrier")){
+            Destroy(gameObject);
+        
+        }
     }
     void Update()
     {
