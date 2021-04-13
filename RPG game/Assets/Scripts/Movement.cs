@@ -15,6 +15,10 @@ public class Movement : MonoBehaviour
     public bool isPlayer1 = false;
     public bool isPlayer2 = false;
     public bool hasKey = false;
+    private Vector3 velo = Vector3.zero;
+    [Range(0, .3f)] [SerializeField] private float m_MovementSmoothing = .05f;
+    private bool faceRight = true;
+    public float move;
 
     public Animator animator; 
     
@@ -43,21 +47,16 @@ public class Movement : MonoBehaviour
             animator.SetBool("isJumping", true);
         }
 
-        Vector3 playerScale = transform.localScale;
-        if (Input.GetAxis("Horizontal") > 0 && isPlayer1){
-            playerScale.x = -1;
-        }else if (Input.GetAxis("Horizontal")<0 && isPlayer1){
-            playerScale.x = 1;
+        Vector3 targetVelocity = new Vector2(move * 10f, rb.velocity.y);
+        rb.velocity = Vector3.SmoothDamp(rb.velocity, targetVelocity, ref velo, m_MovementSmoothing);
+        if (Input.GetAxis("Horizontal") > 0 && faceRight){
+            faceRight = !faceRight;
+            transform.Rotate(0f, 180f, 0f);
+        }else if (Input.GetAxis("Horizontal") < 0 && !faceRight){
+            faceRight = !faceRight;
+            transform.Rotate(0f, 180f, 0f);
         }
 
-        if (Input.GetAxis("Horizontal") < 0 && isPlayer2){
-            playerScale.x = -3;
-        }else if (Input.GetAxis("Horizontal")>0 && isPlayer2){
-            playerScale.x = 3;
-        }
-
-        
-        transform.localScale = playerScale;
 
         
     }
