@@ -76,8 +76,11 @@ public class Movement : MonoBehaviour
 
         if(other.gameObject.CompareTag("Exit")){//this is where we will load up the stat progression UI scene
             if(hasKey){
-             //load in UI scene
+             if (isPlayer1){
              SceneManager.LoadScene(3);
+             }else if (isPlayer2){
+                 SceneManager.LoadScene(4);
+             }
             }else 
             Debug.Log("get the key");
         }
@@ -99,6 +102,12 @@ public class Movement : MonoBehaviour
             }
             
         }
+        if(other.gameObject.CompareTag("saigoexit")){//this is where we will load up the stat progression UI scene
+            if(hasKey){
+                Debug.Log("You have escaped the dungeon!");
+             }else 
+            Debug.Log("get the key");
+        }
         if(other.gameObject.CompareTag("trap")){
             Destroy(other.gameObject);
             health-= 15;
@@ -106,6 +115,10 @@ public class Movement : MonoBehaviour
         }
 
     }
+
+    public void Setter(){
+        health = health;
+    }    
 
 
 

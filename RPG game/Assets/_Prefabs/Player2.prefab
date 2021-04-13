@@ -111,6 +111,8 @@ MonoBehaviour:
   isPlayer1: 0
   isPlayer2: 1
   hasKey: 0
+  smooth: 0.05
+  runSpeed: 50
   animator: {fileID: 409865292}
 --- !u!61 &3198391094899301494
 BoxCollider2D:

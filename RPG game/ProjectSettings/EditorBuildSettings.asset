@@ -20,4 +20,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Scenes/ChraracterUIShooter.unity
     guid: 42a10facee1ba444186339d2fcde3141
+  - enabled: 1
+    path: Assets/_Scenes/MeleeCharLevel2.unity
+    guid: b26d87ea014986c4f871e800fa2185f6
+  - enabled: 1
+    path: Assets/_Scenes/ShooterCharLevel2.unity
+    guid: e246fe00a657b9c4c997b7cbe1f09622
   m_configObjects: {}
