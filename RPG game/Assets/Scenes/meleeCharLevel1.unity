@@ -3513,8 +3513,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6679458429972205498, guid: 3a7459360b76e9a44bd7e51d50f80a1f,
         type: 3}
+<<<<<<< HEAD
       propertyPath: m_TagString
       value: Enemy2
+=======
+      propertyPath: m_IsActive
+      value: 0
+>>>>>>> ba61fe214cada9db0bb58e4cf6f952a08a35abd3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3a7459360b76e9a44bd7e51d50f80a1f, type: 3}
@@ -4038,12 +4043,12 @@ PrefabInstance:
     - target: {fileID: 3779610637928945777, guid: de8df39bd3a85134588567405c02966f,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.63
+      value: -16.67
       objectReference: {fileID: 0}
     - target: {fileID: 3779610637928945777, guid: de8df39bd3a85134588567405c02966f,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -6.43
+      value: 1.88
       objectReference: {fileID: 0}
     - target: {fileID: 3779610637928945777, guid: de8df39bd3a85134588567405c02966f,
         type: 3}
