@@ -45,7 +45,7 @@ public class levelup : MonoBehaviour
         Debug.Log(pointsAmount);
     }
     public void SubHealth(){
-        if(pointsAmount<6 && pointsAmount>0)
+        if(pointsAmount<5 && pointsAmount>0)
         Player.GetComponent<Movement>().health -= 20;
 
         Debug.Log("health is " + Player.GetComponent<Movement>().health);
@@ -60,10 +60,7 @@ public class levelup : MonoBehaviour
         Debug.Log(pointsAmount);
     }
     public void SubDamage(){
-        if(pointsAmount == 0){
-            Debug.Log("cannot");
-        }
-        if(pointsAmount<6 && pointsAmount>0){
+        if(pointsAmount<5 && pointsAmount>0){
             Player.GetComponent<MeleeCombat>().attackDamage -= 10;
             Player.GetComponent<Weapon>().damage -= 10;
         }
@@ -78,7 +75,7 @@ public class levelup : MonoBehaviour
         Debug.Log(pointsAmount);
     }
     public void SubSpeed(){
-        if(pointsAmount<6 && pointsAmount>0){
+        if(pointsAmount<5 && pointsAmount>0){
             Player.GetComponent<Movement>().runSpeed -= 5;
         }
         Debug.Log("speed is " + Player.GetComponent<Movement>().runSpeed);
