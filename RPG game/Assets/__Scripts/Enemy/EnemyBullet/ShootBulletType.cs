@@ -16,7 +16,7 @@ public class ShootBulletType : MonoBehaviour
     void Start()
     {
 
-        fireRate = 4f;
+        fireRate = 2f;
         nextFire = Time.time;
 
         
